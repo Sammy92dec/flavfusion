@@ -1,9 +1,17 @@
 from django.shortcuts import render, HttpResponse
 
+
+
 # Create your views here.
 
 def home(request):
-    return HttpResponse("<h2>Home is working</h2>")
+    context = {
+        'recipes' : recipes
+        }
+    return render(request, "recipes/home.html", context)
 
 def about(request):
-    return HttpResponse("<h1>About!!</h1>")
+    context = {
+        'title' : 'About'
+        }
+    return render(request, "recipes/about.html", context)
