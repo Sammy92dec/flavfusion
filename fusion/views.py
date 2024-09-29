@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
-from . import models
+from .models import Recipe
+
 recipes =[ {
     'author': 'kelly',
     'title': 'meatball sub',
