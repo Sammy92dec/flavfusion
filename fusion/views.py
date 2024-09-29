@@ -1,5 +1,24 @@
 from django.shortcuts import render, HttpResponse
 
+recipes =[ {
+    'author': 'kelly',
+    'title': 'meatball sub',
+    'directions': 'combine all ingredients',
+    'date_posted': 'Sep 27, 2024',
+},
+{
+    'author': 'Jusi',
+    'title': 'vegi sub',
+    'directions': 'combine all ingredients',
+    'date_posted': 'Sep 28, 2024',
+},
+ {
+    'author': 'Dom',
+    'title': 'turkey sub',
+    'directions': 'combine all ingredients',
+    'date_posted': 'Sep 29, 2024',
+},
+]
 
 # Create your views here.
 
