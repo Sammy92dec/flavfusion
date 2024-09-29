@@ -17,10 +17,11 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include # import 'include' to connect app URLS
-
+from users import views as user_views
 
 urlpatterns = [
     
     path('admin/', admin.site.urls),
     path('', include('fusion.urls')), # includes URLS from the app
+    path('register/', user_views.register, name="user-register"),
 ]
