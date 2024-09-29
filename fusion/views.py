@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-
+from . import models
 recipes =[ {
     'author': 'kelly',
     'title': 'meatball sub',
@@ -23,6 +23,7 @@ recipes =[ {
 # Create your views here.
 
 def home(request):
+    recipes = Recipe.objects.all()
     context = {
         'recipes' : recipes
         }
