@@ -1,2 +1,2 @@
-web: gunicorn flavfusion.wsgi
+web: gunicorn flav.wsgi
 
