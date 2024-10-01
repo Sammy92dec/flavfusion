@@ -1,37 +1,32 @@
 from django.shortcuts import render, HttpResponse
-from .models import Recipe
+from django.views.generic import ListView, DetailView, CreateView
 
-recipes =[ {
-    'author': 'kelly',
-    'title': 'meatball sub',
-    'directions': 'combine all ingredients',
-    'date_posted': 'Sep 27, 2024',
-},
-{
-    'author': 'Jusi',
-    'title': 'vegi sub',
-    'directions': 'combine all ingredients',
-    'date_posted': 'Sep 28, 2024',
-},
- {
-    'author': 'Dom',
-    'title': 'turkey sub',
-    'directions': 'combine all ingredients',
-    'date_posted': 'Sep 29, 2024',
-},
-]
+from . import models
+
+
 
 # Create your views here.
 
 def home(request):
-    recipes = Recipe.objects.all()
+    recipes = models.Recipe.objects.all()
     context = {
         'recipes' : recipes
         }
     return render(request, "recipes/home.html", context)
 
+class RecipeListView(ListView):
+    model = models.Recipe
+    template_name = 'recipes/home.html'
+    context_object_name = 'recipes'
+
+class RecipeDetailView(DetailView):
+    model = models.Recipe
+    
+class RecipeCreateView(CreateView):
+    model =  models.Recipe
+    fields = ['title','description']
+
+
+
 def about(request):
-    context = {
-        'title' : 'About'
-        }
-    return render(request, "recipes/about.html", context)
+    return render(request, "recipes/about.html", {'title':'about us page'})
